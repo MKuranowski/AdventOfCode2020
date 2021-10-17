@@ -21,3 +21,7 @@
     (->> coll (partition-by pred) (filter #(!pred (first %))))))
 
 (def non-nil? (complement nil?))
+
+(defn count-if
+  [pred coll]
+  (reduce + (for [i coll, :when (pred i)] 1)))
