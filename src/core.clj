@@ -13,3 +13,9 @@
   [filename]
   (split-lines (slurp (file filename))))
 
+(defn split-on
+  "Splits a sequence by sub-sequences for which (pred elem) is true.
+   The provided predicate must return pure booleans."
+  [pred coll]
+  (let [!pred (complement pred)]
+    (->> coll (partition-by pred) (filter #(!pred (first %))))))
