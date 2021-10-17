@@ -19,3 +19,5 @@
   [pred coll]
   (let [!pred (complement pred)]
     (->> coll (partition-by pred) (filter #(!pred (first %))))))
+
+(def non-nil? (complement nil?))
