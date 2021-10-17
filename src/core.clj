@@ -9,7 +9,7 @@
   [s] (Integer/parseInt s 10))
 
 (defn lines-from-file
-  "Returns a vactor of all lines in a file"
+  "Returns a vector of all lines in a file"
   [filename]
   (split-lines (slurp (file filename))))
 
