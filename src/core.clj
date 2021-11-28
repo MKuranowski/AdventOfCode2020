@@ -25,3 +25,5 @@
 (defn count-if
   [pred coll]
   (reduce + (for [i coll, :when (pred i)] 1)))
+
+(defn transpose [coll] (apply map list coll))
