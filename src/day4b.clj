@@ -4,10 +4,6 @@
   (:require [core]
             [day4a :refer [passports]]))
 
-(def required-fields
-  #{"byr" "iyr" "eyr" "hgt"
-    "hcl" "ecl" "pid"})
-
 (def valid-regexes
   {"byr" #"^19[2-9][0-9]|200[0-2]$"
    "iyr" #"^201[0-9]|2020$"
