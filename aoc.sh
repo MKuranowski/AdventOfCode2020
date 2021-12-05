@@ -1,5 +1,6 @@
 #!/bin/bash
 DAY=${1:?No day provided}
+DAY_NUMBER_ONLY=$(echo "$DAY" | sed 's/[a-z]//')
 
 SUFFIX=".txt"
 if [[ $2 == "test" ]]; then SUFFIX="test.txt"; fi
@@ -7,8 +8,11 @@ if [[ $2 == "test" ]]; then SUFFIX="test.txt"; fi
 if [[ -e "input/${DAY}${SUFFIX}" ]]; then
     FILENAME="input/${DAY}${SUFFIX}"
 else
-    DAY_NUMBER_ONLY=$(echo "$DAY" | sed 's/[a-z]//')
     FILENAME="input/${DAY_NUMBER_ONLY}${SUFFIX}"
 fi
 
-clj -M -m "day${DAY}" "${FILENAME}"
+if [[ "$DAY_NUMBER_ONLY" -ge 19 ]]; then
+    python "src/day${DAY}.py" "${FILENAME}"
+else
+    clj -M -m "day${DAY}" "${FILENAME}"
+fi
