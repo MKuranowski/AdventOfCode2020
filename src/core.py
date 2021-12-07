@@ -10,6 +10,10 @@ def empty_str(t: str) -> bool:
     return t == ""
 
 
+def blank_str(t: str) -> bool:
+    return t.isspace() or not t
+
+
 def split_on(seq: Iterable[_T], pred: Callable[[_T], bool]) -> list[list[_T]]:
     after_split: list[list[_T]] = []
     current: list[_T] = []
