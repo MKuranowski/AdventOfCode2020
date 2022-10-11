@@ -11,7 +11,7 @@ else
     FILENAME="input/${DAY_NUMBER_ONLY}${SUFFIX}"
 fi
 
-if [[ "$DAY_NUMBER_ONLY" -ge 19 ]]; then
+if [[ ("$DAY_NUMBER_ONLY" -ge 19) && (-z "$NO_PYTHON") ]]; then
     python "src/day${DAY}.py" "${FILENAME}"
 else
     clj -M -m "day${DAY}" "${FILENAME}"
