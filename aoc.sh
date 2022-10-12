@@ -12,7 +12,7 @@ else
 fi
 
 if [[ ("$DAY_NUMBER_ONLY" -ge 19) && (-z "$NO_PYTHON") ]]; then
-    python "src/day${DAY}.py" "${FILENAME}"
+    python3 "src/day${DAY}.py" "${FILENAME}"
 else
     clj -M -m "day${DAY}" "${FILENAME}"
 fi
